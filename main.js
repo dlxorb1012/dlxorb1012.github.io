@@ -118,8 +118,8 @@ function getFrame() {
         const pred = model.predict(preprocess(imgData)).dataSync()
 
         //find the top 5 predictions 
-        const indices = findIndicesOfMax(pred, 5)
-        const probs = findTopValues(pred, 5)
+        const indices = findIndicesOfMax(pred, 6)
+        const probs = findTopValues(pred, 6)
         const names = getClassNames(indices)
 
         //set the table 
@@ -160,7 +160,7 @@ function success(data) {
     const lst = data.split(/\n/)
     for (var i = 0; i < lst.length - 1; i++) {
         let symbol = lst[i]
-        let classKoNames = {'fireplace': '벽난로', 'postcard': '엽서', 'snowman': '눈사람', 'sweater': '스웨터', 'cake': '케이크',};
+        let classKoNames = {'fireplace': '벽난로', 'postcard': '엽서', 'snowman': '눈사람', 'sweater': '스웨터', 'cake': '케이크', 'penguin': '펭귄',};
         classNames[i] = classKoNames[symbol];
     }
 }
@@ -183,12 +183,12 @@ function findIndicesOfMax(inp, count) {
 }
 
 /*
-find the top 5 predictions
+find the top 6 predictions
 */
 function findTopValues(inp, count) {
     var outp = [];
     let indices = findIndicesOfMax(inp, count)
-    // show 5 greatest scores
+    // show 6 greatest scores
     for (var i = 0; i < indices.length; i++)
         outp[i] = inp[indices[i]]
     return outp
