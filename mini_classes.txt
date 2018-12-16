@@ -2,4 +2,5 @@ snowman
 postcard
 penguin
 fireplace
-snowflake
+cake
+sweater
