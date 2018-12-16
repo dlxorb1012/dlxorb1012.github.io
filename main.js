@@ -118,8 +118,8 @@ function getFrame() {
         const pred = model.predict(preprocess(imgData)).dataSync()
 
         //find the top 5 predictions 
-        const indices = findIndicesOfMax(pred, 5)
-        const probs = findTopValues(pred, 5)
+        const indices = findIndicesOfMax(pred, 6)
+        const probs = findTopValues(pred, 6)
         const names = getClassNames(indices)
 
         //set the table 
@@ -172,6 +172,7 @@ function findIndicesOfMax(inp, count) {
     var outp = [];
     for (var i = 0; i < inp.length; i++) {
         outp.push(i); // add index to output array
+        console.log(outp)
         if (outp.length > count) {
             outp.sort(function(a, b) {
                 return inp[b] - inp[a];
@@ -188,6 +189,7 @@ find the top  predictions
 function findTopValues(inp, count) {
     var outp = [];
     let indices = findIndicesOfMax(inp, count)
+    console.log('indices: ', indices);
     // show 5 greatest scores
     for (var i = 0; i < indices.length; i++)
         outp[i] = inp[indices[i]]
