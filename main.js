@@ -172,9 +172,7 @@ function findIndicesOfMax(inp, count) {
     var outp = [];
     for (var i = 0; i < inp.length; i++) {
         outp.push(i); // add index to output array
-        console.log(outp)
         if (outp.length == count) {
-            console.log('over')
             outp.sort(function(a, b) {
                 return inp[b] - inp[a];
             }); // descending sort the output array // remove the last index (index of smallest element in output array)
@@ -189,7 +187,6 @@ find the top  predictions
 function findTopValues(inp, count) {
     var outp = [];
     let indices = findIndicesOfMax(inp, count)
-    console.log('indices: ', indices);
     // show 5 greatest scores
     for (var i = 0; i < indices.length; i++)
         outp[i] = inp[indices[i]]
