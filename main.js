@@ -173,7 +173,7 @@ function findIndicesOfMax(inp, count) {
     for (var i = 0; i < inp.length; i++) {
         outp.push(i); // add index to output array
         console.log(outp)
-        if (outp.length > count) {
+        if (outp.length = count) {
             console.log('over')
             outp.sort(function(a, b) {
                 return inp[b] - inp[a];
