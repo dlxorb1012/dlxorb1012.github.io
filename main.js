@@ -160,7 +160,8 @@ function success(data) {
     const lst = data.split(/\n/)
     for (var i = 0; i < lst.length - 1; i++) {
         let symbol = lst[i]
-        classNames[i] = symbol
+        let classKoNames = {'fireplace': '벽난로', 'postcard': '엽서', 'snowman': '눈사람', 'sweater': '스웨터', 'cake': '케이크',};
+        classNames[i] = classKoNames[symbol];
     }
 }
 
@@ -240,7 +241,7 @@ allow drawing on canvas
 function allowDrawing() {
     canvas.isDrawingMode = 1;
     if (mode == 'en')
-        document.getElementById('status').innerHTML = 'Model Loaded';
+        document.getElementById('status').innerHTML = '준비 완료!';
     else
         document.getElementById('status').innerHTML = 'تم التحميل';
     $('button').prop('disabled', false);

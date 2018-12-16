@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Sketcher</title>
+<title>Guesswhat</title>
 
 <!-- bs4 css -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
@@ -34,25 +34,23 @@
 <body>
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
   <!-- Brand/logo -->
-  <a class="navbar-brand" href="#"><h1>SKETCH<small>ER</small></h1></a>
+  <a class="navbar-brand" href="#"><h1>Guess<small>WHAT</small></h1></a>
   </nav>
 <div class="container-fluid"> 
 
 <blockquote class="blockquote text-justify" style="margin:30px;">
- <p> Sketcher is a simple tool that uses CNN to recognize drawings. 
- The CNN was trained to recognize 100 <a href='https://github.com/zaidalyafeai/zaidalyafeai.github.io/blob/master/sketcher/mini_classes.txt'>classes</a> using the quick draw <a href='https://github.com/googlecreativelab/quickdraw-dataset'> dataset</a>. It achieves 6% top 5 error. The accuracy could be improved
-but I focused on making the model light with around 1 million parameters. The table  will show the top 5 predictions. </p>
-    <footer class="blockquote-footer">ZAID ALYAFEAI</footer>
+ <p> 안화고등학교 창의발명부 동아리의 축제부스용 웹사이트 입니다. 웹사이트의 html, css, js 소스코드와 딥러닝 네트워크 구성은 <a href='https://github.com/zaidalyafeai/zaidalyafeai.github.io/blob/master/sketcher'>zaidalyafeai</a> 의 Github repository를 참고했으며 모델 훈련은 구글의 <a href='https://github.com/googlecreativelab/quickdraw-dataset'>quickdraw dataset</a>을 이용하여 학습시켰습니다. </p>
+    <footer class="blockquote-footer">이태규, 오원택, 오준서</footer>
   </blockquote>
 </div>
 
 <div class="row">
   <div class="col" style ='margin-left:100px;'>
-<h4 id ='status' >Loading Model... </h4>	  
+<h4 id ='status' >모델 로딩중 </h4>	  
 <canvas id="canvas" width="300" height="300" class="canvas" style="border:1px solid #b9bfc9;margin-top:25px;"></canvas>
 <div class="btn-group" style = 'margin-top:40px; '>
 <input type="range" min="5" max="20" value="10" class="slider" id="myRange" style ='margin-top:20px;'>
-<button type="button" class="btn btn-outline-primary" onclick ='erase()' style ='margin-left:10px;' disabled>Clear</button>
+<button type="button" class="btn btn-outline-primary" onclick ='erase()' style ='margin-left:10px;' disabled>모두 지우기</button>
     </div>   
 </div>
   <div class="col">
