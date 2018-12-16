@@ -1,0 +1,5 @@
+postcard
+penguin
+fireplace
+snowflake
+snowman
