@@ -118,8 +118,8 @@ function getFrame() {
         const pred = model.predict(preprocess(imgData)).dataSync()
 
         //find the top 5 predictions 
-        const indices = findIndicesOfMax(pred, 5)
-        const probs = findTopValues(pred, 5)
+        const indices = findIndicesOfMax(pred, 6)
+        const probs = findTopValues(pred, 6)
         const names = getClassNames(indices)
 
         //set the table 
