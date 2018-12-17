@@ -8,7 +8,8 @@ var canvas;
 var coords = [];
 var mousePressed = false;
 var mode;
-
+var quizNames = [];
+var current_question = '';
 /*
 prepare the drawing canvas 
 */
@@ -124,6 +125,17 @@ function getFrame() {
 
         //set the table 
         setTable(names, probs)
+        if(names[0] == current_question){
+            document.getElementById('status').innerHTML = '아하! 이건<b>'+ names[0] + '</b>입니다!' //top1
+            //settimeout
+            //let idx = //random value
+            //changeQuestion(idx);
+            //
+        }
+        else{
+            document.getElementById('status').innerHTML = '음.. 이건<b>'+ names[0] + '</b>인가요?' //top1
+        }
+        
     }
 
 }
@@ -240,7 +252,7 @@ allow drawing on canvas
 function allowDrawing() {
     canvas.isDrawingMode = 1;
     if (mode == 'en')
-        document.getElementById('status').innerHTML = '준비 완료!';
+        document.getElementById('status').innerHTML = '시작!';
     else
         document.getElementById('status').innerHTML = 'تم التحميل';
     $('button').prop('disabled', false);
@@ -248,6 +260,7 @@ function allowDrawing() {
     slider.oninput = function() {
         canvas.freeDrawingBrush.width = this.value;
     };
+
 }
 
 /*
@@ -257,4 +270,12 @@ function erase() {
     canvas.clear();
     canvas.backgroundColor = '#ffffff';
     coords = [];
+}
+
+function changeQuestion(idx){
+    if(quizNames.length == 0){
+        quizNames = classNames;
+    }
+    document.getElementById('quiz').innerHTML = quizNames[idx];
+    current_question = quizNames.pop(idx);
 }

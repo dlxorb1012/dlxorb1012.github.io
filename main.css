@@ -31,3 +31,10 @@
     background: #007AFF;
     cursor: pointer;
 }
+#quizbox{
+    text-align: center;
+    margin-top: 0px;
+}
+#quiz{
+    background-color: azure;
+}
