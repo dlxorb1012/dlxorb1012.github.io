@@ -277,7 +277,9 @@ function erase() {
 
 function changeQuestion(idx){
     if(quizNames.length == 0){
-        quizNames = classNames;
+        for(let i=0; i<classNames.length; i++){
+            quizNames[i] = classNames[i];
+        }
     }
     document.getElementById('quiz').innerHTML = quizNames[idx];
     current_question = quizNames.pop(idx);
