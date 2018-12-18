@@ -125,6 +125,7 @@ function getFrame() {
 
         //set the table 
         setTable(names, probs)
+        console.log('top names:' + names[0]);
         if(current_question == ''){
             changeQuestion(0);
         }
