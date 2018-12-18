@@ -130,14 +130,14 @@ function getFrame() {
             changeQuestion(0);
         }
         if(names[0] == current_question){
-            document.getElementById('status').innerHTML = '아하! 이건<b>'+ names[0] + '</b>입니다!' //top1
+            document.getElementById('status').innerHTML = '아하! 이건 <b>'+ names[0] + '</b> 입니다!' //top1
             //settimeout
             //let idx = //random value
             //changeQuestion(idx);
             //
         }
         else{
-            document.getElementById('status').innerHTML = '음.. 이건<b>'+ names[0] + '</b>인가요?' //top1
+            document.getElementById('status').innerHTML = '음.. 이건 <b>'+ names[0] + '</b> 인가요?' //top1
         }
         
     }
