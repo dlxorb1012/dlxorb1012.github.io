@@ -136,7 +136,7 @@ function getFrame() {
                 isChanging = true;
                 setTimeout(function(){
                     changeQuestion();
-                    isChanging = flase;
+                    isChanging = false;
                 }, 3000);
             }
             else if(!quizNames.length){
