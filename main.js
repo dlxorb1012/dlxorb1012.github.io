@@ -125,6 +125,9 @@ function getFrame() {
 
         //set the table 
         setTable(names, probs)
+        if(current_question == ''){
+            changeQuestion(0);
+        }
         if(names[0] == current_question){
             document.getElementById('status').innerHTML = '아하! 이건<b>'+ names[0] + '</b>입니다!' //top1
             //settimeout
