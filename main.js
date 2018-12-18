@@ -10,6 +10,9 @@ var mousePressed = false;
 var mode;
 var quizNames = [];
 var current_question = '';
+var isGameStarted = false;
+var isChanging = false;
+var score = 0;
 /*
 prepare the drawing canvas 
 */
@@ -130,19 +133,23 @@ function getFrame() {
             changeQuestion();
         }
         if(names[0] == current_question){
+            score += 1;
             document.getElementById('status').innerHTML = '아하! 이건 <b>'+ names[0] + '</b> 입니다!' //top1
-            setTimeout(function(){
-                changeQuestion();
-            }, 3000);
-            //settimeout
-            //let idx = //random value
-            //changeQuestion(idx);
-            //
-        }
+            if(quizNames.length && !isChanging){
+                isChanging = true;
+                setTimeout(function(){
+                    changeQuestion();
+                    isChanging = flase;
+                }, 3000);
+            }
+            else if(!quizNames.length){
+                gameIsFinished();
+            }
+           }
         else{
             document.getElementById('status').innerHTML = '음.. 이건 <b>'+ names[0] + '</b> 인가요?' //top1
         }
-        
+
     }
 
 }
@@ -258,8 +265,10 @@ allow drawing on canvas
 */
 function allowDrawing() {
     canvas.isDrawingMode = 1;
-    if (mode == 'en')
+    if (mode == 'en'){
+        changeQuestion();
         document.getElementById('status').innerHTML = '시작!';
+    }
     else
         document.getElementById('status').innerHTML = 'تم التحميل';
     $('button').prop('disabled', false);
@@ -280,12 +289,20 @@ function erase() {
 }
 
 function changeQuestion(){
-    if(quizNames.length == 0){
+    if(isGameStarted == false){
         for(let i=0; i<classNames.length; i++){
             quizNames[i] = classNames[i];
         }
+        isGameStarted = true;
     }
     const random_idx = Math.floor(Math.random() * quizNames.length);
     current_question = quizNames.splice(random_idx, 1);
     document.getElementById('quiz').innerHTML = current_question;
+}
+
+function gameIsFinished(){
+    document.getElementById('quiz').innerHTML = "게임 종료";
+    document.getElementById('status').innerHTML = "정답: "+score+"/6";
+    alert("게임 종료\n정답: "+score+"/6");
+
 }
