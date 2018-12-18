@@ -285,7 +285,7 @@ function changeQuestion(){
             quizNames[i] = classNames[i];
         }
     }
-    const random_idx = Math.floor(Math.random() * quizNames.length());
+    const random_idx = Math.floor(Math.random() * quizNames.length);
     current_question = quizNames.splice(random_idx, 1);
     document.getElementById('quiz').innerHTML = current_question;
 }
