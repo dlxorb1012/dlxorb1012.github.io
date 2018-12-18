@@ -129,9 +129,6 @@ function getFrame() {
         //set the table 
         setTable(names, probs)
         console.log('top names:' + names[0]);
-        if(current_question == ''){
-            changeQuestion();
-        }
         if(names[0] == current_question){
             score += 1;
             document.getElementById('status').innerHTML = '아하! 이건 <b>'+ names[0] + '</b> 입니다!' //top1
@@ -258,7 +255,8 @@ async function start(cur_mode) {
     
     //load the class names
     await loadDict()
-}
+    changeQuestion();
+}   
 
 /*
 allow drawing on canvas
@@ -266,7 +264,6 @@ allow drawing on canvas
 function allowDrawing() {
     canvas.isDrawingMode = 1;
     if (mode == 'en'){
-        changeQuestion();
         document.getElementById('status').innerHTML = '시작!';
     }
     else
