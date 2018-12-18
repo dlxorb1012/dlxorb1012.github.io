@@ -127,10 +127,13 @@ function getFrame() {
         setTable(names, probs)
         console.log('top names:' + names[0]);
         if(current_question == ''){
-            changeQuestion(0);
+            changeQuestion();
         }
         if(names[0] == current_question){
             document.getElementById('status').innerHTML = '아하! 이건 <b>'+ names[0] + '</b> 입니다!' //top1
+            setTimeout(function(){
+                changeQuestion();
+            }, 3000);
             //settimeout
             //let idx = //random value
             //changeQuestion(idx);
@@ -276,12 +279,13 @@ function erase() {
     coords = [];
 }
 
-function changeQuestion(idx){
+function changeQuestion(){
     if(quizNames.length == 0){
         for(let i=0; i<classNames.length; i++){
             quizNames[i] = classNames[i];
         }
     }
-    document.getElementById('quiz').innerHTML = quizNames[idx];
-    current_question = quizNames.pop(idx);
+    const random_idx = Math.floor(Math.random() * quizNames.length());
+    current_question = quizNames.splice(random_idx, 1);
+    document.getElementById('quiz').innerHTML = current_question;
 }
