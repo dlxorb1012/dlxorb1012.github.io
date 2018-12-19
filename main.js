@@ -11,6 +11,7 @@ var mode;
 var quizNames = [];
 var current_question = '';
 var isGameStarted = false;
+var isGameEnded = false;
 var isChanging = false;
 var score = 0;
 /*
@@ -130,18 +131,19 @@ function getFrame() {
         setTable(names, probs)
         console.log('top names:' + names[0]);
         if(names[0] == current_question){
-            score += 1;
             document.getElementById('status').innerHTML = '아하! 이건 <b>'+ names[0] + '</b> 입니다!' //top1
             if(quizNames.length && !isChanging){ // 퀴즈를 모두 내지 않았고, 문제를 바꾸고 있지 않을때
                 isChanging = true;
+                score += 1;
                 setTimeout(function(){
                     changeQuestion();
                     isChanging = false;
                 }, 3000);
             }
-            else if(!quizNames.length){ // 문제를 모두 냈을 때
+            else if(!quizNames.length && !isGameEnded){ // 문제를 모두 냈을 때
+                isGameEnded = true;
                 setTimeout(function(){
-                    gameIsFinished();
+                    gameIsFinished(); 
                 }, 3000);
             }
            }
