@@ -143,6 +143,7 @@ function getFrame() {
             }
             else if(!quizNames.length && !isGameEnded){ // 문제를 모두 냈을 때
                 isGameEnded = true;
+                score += 1;
                 setTimeout(function(){
                     gameIsFinished(); 
                 }, 3000);
