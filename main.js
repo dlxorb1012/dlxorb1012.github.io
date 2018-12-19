@@ -147,7 +147,7 @@ function getFrame() {
                 }, 3000);
             }
            }
-        else{
+        else if(!isChanging){
             document.getElementById('status').innerHTML = '음.. 이건 <b>'+ names[0] + '</b> 인가요?' //top1
         }
 
