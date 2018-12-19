@@ -129,12 +129,13 @@ function getFrame() {
 
         //set the table 
         setTable(names, probs)
-        console.log('top names:' + names[0]);
+
         if(names[0] == current_question){
             document.getElementById('status').innerHTML = '아하! 이건 <b>'+ names[0] + '</b> 입니다!' //top1
             if(quizNames.length && !isChanging){ // 퀴즈를 모두 내지 않았고, 문제를 바꾸고 있지 않을때
                 isChanging = true;
                 score += 1;
+                console.log("you scored!")
                 setTimeout(function(){
                     changeQuestion();
                     isChanging = false;
@@ -157,7 +158,7 @@ function getFrame() {
 
 /*
 get the the class names 
-*/
+*/ 
 function getClassNames(indices) {
     var outp = []
     for (var i = 0; i < indices.length; i++)
@@ -290,6 +291,7 @@ function erase() {
 }
 
 function changeQuestion(){
+    console.log("changing question...");
     if(isGameStarted == false){
         for(let i=0; i<classNames.length; i++){
             quizNames[i] = classNames[i];
@@ -302,6 +304,7 @@ function changeQuestion(){
 }
 
 function gameIsFinished(){
+    console.log("game over");
     document.getElementById('quiz').innerHTML = "게임 종료";
     document.getElementById('status').innerHTML = "정답: "+score+"/6";
     alert("게임 종료\n정답: "+score+"/6");
