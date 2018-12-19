@@ -1,6 +1,9 @@
-postcard
-penguin
+spider
+mug
 cake
-fireplace
+sock
+penguin
 sweater
+fireplace
+postcard
 snowman

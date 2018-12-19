@@ -4,3 +4,6 @@ penguin
 fireplace
 cake
 sweater
+sock
+spider
+mug

@@ -123,8 +123,8 @@ function getFrame() {
         const pred = model.predict(preprocess(imgData)).dataSync()
 
         //find the top 5 predictions 
-        const indices = findIndicesOfMax(pred, 6)
-        const probs = findTopValues(pred, 6)
+        const indices = findIndicesOfMax(pred, 5)
+        const probs = findTopValues(pred, 5)
         const names = getClassNames(indices)
 
         //set the table 
@@ -189,7 +189,7 @@ function success(data) {
     const lst = data.split(/\n/)
     for (var i = 0; i < lst.length - 1; i++) {
         let symbol = lst[i]
-        let classKoNames = {'fireplace': '벽난로', 'postcard': '엽서', 'snowman': '눈사람', 'sweater': '스웨터', 'cake': '케이크', 'penguin': '펭귄',};
+        let classKoNames = {'fireplace': '벽난로', 'postcard': '엽서', 'snowman': '눈사람', 'sweater': '스웨터', 'cake': '케이크', 'penguin': '펭귄', 'sock': '양말', 'spider': '거미', 'mug': '머그컵',};
         classNames[i] = classKoNames[symbol];
     }
 }
@@ -201,10 +201,11 @@ function findIndicesOfMax(inp, count) {
     var outp = [];
     for (var i = 0; i < inp.length; i++) {
         outp.push(i); // add index to output array
-        if (outp.length == count) {
+        if (outp.length > count) {
             outp.sort(function(a, b) {
                 return inp[b] - inp[a];
             }); // descending sort the output array // remove the last index (index of smallest element in output array)
+            outp.pop();
         }
     }
     return outp;
@@ -307,7 +308,7 @@ function changeQuestion(){
 function gameIsFinished(){
     console.log("game over");
     document.getElementById('quiz').innerHTML = "게임 종료";
-    document.getElementById('status').innerHTML = "정답: "+score+"/6";
-    alert("게임 종료\n정답: "+score+"/6");
+    document.getElementById('status').innerHTML = "정답: "+score+"/9";
+    alert("게임 종료\n정답: "+score+"/9");
 
 }
