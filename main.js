@@ -132,15 +132,17 @@ function getFrame() {
         if(names[0] == current_question){
             score += 1;
             document.getElementById('status').innerHTML = '아하! 이건 <b>'+ names[0] + '</b> 입니다!' //top1
-            if(quizNames.length && !isChanging){
+            if(quizNames.length && !isChanging){ // 퀴즈를 모두 내지 않았고, 문제를 바꾸고 있지 않을때
                 isChanging = true;
                 setTimeout(function(){
                     changeQuestion();
                     isChanging = false;
                 }, 3000);
             }
-            else if(!quizNames.length){
-                gameIsFinished();
+            else if(!quizNames.length){ // 문제를 모두 냈을 때
+                setTimeout(function(){
+                    gameIsFinished();
+                }, 3000);
             }
            }
         else{
