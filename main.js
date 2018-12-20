@@ -26,7 +26,9 @@ $(function() {
     canvas.renderAll();
     //setup listeners 
     canvas.on('mouse:up', function(e) {
-        getFrame();
+        if(!isChanging){
+            getFrame();
+        }
         mousePressed = false
     });
     canvas.on('mouse:down', function(e) {
